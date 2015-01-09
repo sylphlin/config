@@ -16,8 +16,8 @@ sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_
 systemctl reload sshd.service
 
 # Modify server name
-hostname $SERVER
-echo "HOSTNAME=$SERVER" >> /etc/sysconfig/network
+hostnamectl set-hostname $SERVER
+systemctl restart systemd-hostnamed
 
 # Setting VIM
 yum -y install vim
