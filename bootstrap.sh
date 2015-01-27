@@ -19,6 +19,9 @@ systemctl reload sshd.service
 hostnamectl set-hostname $SERVER
 systemctl restart systemd-hostnamed
 
+# Modify DNS Search suffix
+echo -e 'SEARCH=internal' >> /etc/sysconfig/network
+
 # Setting VIM
 yum -y install vim
 echo -e '\ncolorscheme elflord\nset tabstop=4\nset tabstop=3\nset expandtab\nset encoding=utf-8' >> /etc/vimrc
